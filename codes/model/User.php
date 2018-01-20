@@ -1,5 +1,7 @@
 <?php
 
+require_once '../database/DB.php';
+
 class User
 {
     public $id;
@@ -27,6 +29,22 @@ class User
     public $updated_at;
 
 
+    public function save() {
+        $db = DB::getInstance();
+        /*$sql = "insert into users(external_id,
+email, 
+zip_code_address, 
+first_name, 
+last_name, 
+membership_type,
+last_online, 
+hosting_page_complete,
+host_non_shedding_only, 
+host_neutered_only,
+
+) values()";*/
+        ddd($db->query('select * from users'));
+    }
 
 
 

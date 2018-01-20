@@ -1,0 +1,104 @@
+
+{
+  "mappings": {
+    "user": {
+      "properties": {
+        "name_text": { "type": "text"  },
+        "profile_picture_image": { "type": "keyword"  },
+        "created_at":  { "type":   "date" },
+        "updated_at": { "type": "date" },
+        "user_signed_up": { "type": "boolean" },
+        "authentication": {
+          "type": "nested",
+          "properties": {
+            "email": {
+              "properties": {
+                "email": { "type": "keyword" },
+                "email_confirmed": { "type": "boolean" }
+              }
+            },
+            "Facebook": {
+              "properties": {
+                "email": { "type": "keyword" },
+                "id": { "type": "keyword" }
+              }
+            }
+          }
+        },
+        "last_name_text": { "type": "text" },
+        "zip_code_address_geographic_address": {
+          "properties": {
+            "address": { "type": "text" },
+            "location": { "type": "geo_point" }
+          }
+        },
+        "marketing_source_text": { "type": "text" },
+        "home_type_text": { "type": "keyword" },
+        "host_neutered_only__boolean": { "type": "boolean" },
+        "host_non_shedding_only__boolean": { "type": "boolean" },
+        "mobile_phone_text": { "type": "keyword" },
+        "yard_details_text": { "type": "text" },
+        "other_pets_text": { "type": "text" },
+        "hosting_prefs_text": { "type": "text" },
+        "cats_in_home1_boolean": { "type": "boolean" },
+        "hosting_page_complete__boolean": { "type": "boolean" },
+        "can_host_sizes_list_text": { "type": "keyword" },
+        "dog_added__boolean": { "type": "boolean" },
+        "employer_text": { "type": "text" },
+        "hosting_experience_text": { "type": "text" },
+        "favourites_list_user": { "type": "keyword" },
+        "is_admin_boolean": { "type": "boolean" },
+        "StripeCustomerID": { "type": "keyword" },
+        "membership_type_text": { "type": "keyword" },
+        "sms_notify_boolean": { "type": "boolean" },
+        "last_online_date": { "type": "date" },
+        "has_yard_boolean": { "type": "boolean" },
+        "has_kids_boolean": { "type": "boolean" },
+        "account_verified_text__text": { "type": "keyword" },
+        "during_work_days_new_list_text": { "type": "keyword" },
+        "looking_for_list_text": { "type": "keyword" },
+        "dogs_on_boolean": { "type": "boolean" },
+        "hosting_on_boolean": { "type": "boolean" },
+        "new_members_weekly_boolean": { "type": "boolean" },
+        "user_id": { "type": "keyword" },
+        "dog_list_custom_dog": {
+          "type": "nested",
+          "properties": {
+            "about_dog_text": { "type": "text" },
+            "active_number": { "type": "integer" },
+            "anxious_vs_relaxed_alone_number": { "type": "integer" },
+            "birth_date_date": { "type": "date" },
+            "calm_vs_playful_number": { "type": "integer" },
+            "gender_text": { "type": "keyword" },
+            "gets_along_w_sizes_list_text": { "type": "keyword" },
+            "name_text": { "type": "text" },
+            "neutered__boolean": { "type": "boolean" },
+            "non_shedding__boolean": { "type": "boolean" },
+            "picture_image": { "type": "keyword" },
+            "potty_trained_details_text": { "type": "text" },
+            "potty_trained_text": { "type": "keyword" },
+            "shy_vs_dominating_number": { "type": "keyword" },
+            "size_text": { "type": "keyword" },
+            "timid_number": { "type": "integer" },
+            "created_at":  { "type":   "date" },
+            "updated_at": { "type": "date" },
+            "breeds_list_text": { "type": "keyword" },
+            "owner_email_text": { "type": "keyword" },
+            "gets_along_with_cats__boolean": { "type": "boolean" },
+            "gets_along_with_dogs__boolean": { "type": "boolean" },
+            "gets_along_with_kids__boolean": { "type": "boolean" },
+            "during_work_days_list_text": { "type": "keyword" },
+            "during_work_days1_list_text": { "type": "keyword" },
+            "zip_code_geographic_address": {
+              "properties": {
+                "address": { "type": "text" },
+                "location": { "type": "geo_point" }
+              }
+            },
+            "dog_id": { "type": "keyword" }
+          }
+        }
+      }
+    }
+  }
+}

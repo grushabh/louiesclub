@@ -46,6 +46,11 @@ class Users
                 $user->home_type = $result['home_type_text'];
                 $user->host_neutered_only = $result['host_neutered_only__boolean'];
                 $user->host_non_shedding_only = $result['host_non_shedding_only__boolean'];
+                $user->hosting_page_complete = $result['hosting_page_complete__boolean'];
+                $user->last_online = $result['last_online_date'];
+                $user->membership_type = $result['membership_type_text'];
+                $user->saved_users = isset($result['favourites_list_user']) ? $result['favourites_list_user'] : [];
+                $user->updated_at = $result['Modified Date'];
             }
 
 
