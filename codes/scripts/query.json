@@ -1,0 +1,121 @@
+
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "term": {
+            "hosting_page_complete__boolean": true
+          }
+        },
+        {
+          "term": {
+            "dog_added__boolean": true
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "nested": {
+                  "path": "dog_list_custom_dog",
+                  "query": {
+                    "bool": {
+                      "should": [
+                        {
+                          "bool": {
+                            "must": [
+                              {
+                                "term": {
+                                  "dog_list_custom_dog.breeds_list_text": {
+                                    "value": "Maltese",
+                                    "boost": 2
+                                  }
+                                }
+                              }
+                            ]
+
+                          }
+
+                        }
+                      ,
+                        {
+                          "bool": {
+                            "must_not": [
+                              {
+                                "term": {
+                                  "dog_list_custom_dog.breeds_list_text": "Maltese"
+                                }
+                              }
+                            ]
+
+                          }
+
+                        }
+                      ,
+                        {
+                          "bool": {
+                            "must": [
+                              {
+                                "term": {
+                                  "dog_list_custom_dog.size_text": {
+                                    "value": "Small (11 - 30 lbs)",
+                                    "boost": 2
+                                  }
+                                }
+                              }
+                            ]
+
+                          }
+
+                        },
+                        {
+                          "bool": {
+                            "must_not": [
+                              {
+                                "term": {
+                                  "dog_list_custom_dog.size_text": "Small (11 - 30 lbs)"
+                                }
+                              }
+                            ]
+
+                          }
+
+                        }
+                        ,
+                        {
+                            "range": {
+                              "dog_list_custom_dog.birth_date_date": {
+                                "gte": "now-3y",
+                                "boost": 2
+                              }
+                            }
+                        },
+                        {
+                          "range": {
+                            "dog_list_custom_dog.birth_date_date": {
+                              "lte": "now-3y"
+                            }
+                          }
+                        }
+
+                      ]
+
+                    }
+
+                  }
+
+                }
+
+              }
+
+            ]
+          }
+
+        }
+      ]
+    }
+
+  }
+
+}
