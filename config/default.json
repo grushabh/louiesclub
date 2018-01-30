@@ -1,0 +1,13 @@
+{
+    "listen": {
+        "host": "0.0.0.0",
+        "httpPort": 8080
+    },
+    "log": {
+        "level": "debug"
+    },
+    "elasticsearch":{
+        "host":"http://search-louiesclub-xy5kbg5cncx3snc5niiben3cdu.us-west-2.es.amazonaws.com",
+        "log":"error"
+    }
+}

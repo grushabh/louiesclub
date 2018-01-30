@@ -1,0 +1,55 @@
+{
+  "name": "dog_match",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development backpack",
+    "prod": "NODE_ENV=production backpack",
+    "build": "NODE_ENV=production backpack build",
+    "apidoc": "apidoc -i src/routers/ -o apidoc/",
+    "deploy": "pm2 deploy ecosystem.config.js  production",
+    "deploy_setup": "pm2 deploy ecosystem.config.js  production setup",
+    "eslint": "eslint --ignore-pattern 'src/models/*' src/*"
+  },
+  "pre-commit": [
+    "eslint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://liangdev@github.com/liangdev/louiesclub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "backpack-core": "^0.5.0",
+    "config": "^1.25.1",
+    "elastic-builder": "^1.1.6",
+    "elasticsearch": "^14.0.0",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-combine-routers": "^2.0.1",
+    "koa-jwt": "^3.2.1",
+    "koa-logger": "^3.0.0",
+    "koa-mount": "^3.0.0",
+    "koa-onerror": "^4.0.0",
+    "koa-router": "^7.1.1",
+    "koa-static": "^4.0.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "node-uuid": "^1.4.8",
+    "tracer": "^0.8.7"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "js-beautify": "^1.6.14",
+    "pre-commit": "^1.2.2"
+  }
+}
