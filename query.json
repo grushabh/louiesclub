@@ -1,164 +1,267 @@
 {
-    "query": {
+    "query": 
 
-        "bool": {
-            "must": [{
-                    "bool": {
-                        "should": [{
-                                "term": {
-                                    "hosting_page_complete__boolean": true
-                                }
-                            },
-                            {
-                                "term": {
-                                    "dog_added__boolean": true
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "nested": {
-                        "path": "dog_list_custom_dog",
-                        "query": {
-                            "bool": {
-                                "must": [{
-                                        "terms": {
-                                            "dog_list_custom_dog.size_text": [
-                                                "Small (11 - 30 lbs)"
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "term": {
-                                            "dog_list_custom_dog.non_shedding__boolean": true
-                                        }
-                                    },
-                                    {
-                                        "term": {
-                                            "dog_list_custom_dog.gets_along_with_dogs__boolean": true
-                                        }
-                                    }
-                                ]
-                            }
+        {
+            "bool": {
+                "must": [{
+                        "term": {
+                            "hosting_page_complete__boolean": true
                         }
-                    }
-                },
-                {
-                    "terms": {
-                        "can_host_sizes_list_text": [
-                            "Small (11 - 30 lbs)"
-                        ]
-                    }
-                },
-                {
-                    "nested": {
-                        "path": "dog_list_custom_dog",
-                        "query": {
-                            "bool": {
-                                "should": [{
-                                        "bool": {
-                                            "must": {
-                                                "terms": {
-                                                    "boost": 2,
-                                                    "dog_list_custom_dog.breeds_list_text": [
-                                                        "Labradoodle"
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "bool": {
-                                            "must_not": {
-                                                "terms": {
-                                                    "dog_list_custom_dog.breeds_list_text": [
-                                                        "Labradoodle"
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "bool": {
-                                            "must": {
-                                                "terms": {
-                                                    "boost": 2,
-                                                    "dog_list_custom_dog.size_text": [
-                                                        "Small (11 - 30 lbs)"
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "bool": {
-                                            "must_not": {
-                                                "terms": {
-                                                    "dog_list_custom_dog.size_text": [
-                                                        "Small (11 - 30 lbs)"
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "bool": {
-                                            "boost": 2,
-                                            "must": {
-                                                "range": {
-                                                    "dog_list_custom_dog.birth_date_date": {
-                                                        "gte": "2008-11-30T16:00:00+08:00",
-                                                        "lte": "2014-11-30T16:00:00+08:00"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "bool": {
-                                            "must_not": {
-                                                "range": {
-                                                    "dog_list_custom_dog.birth_date_date": {
-                                                        "gte": "2006-11-30T16:00:00+08:00",
-                                                        "lte": "2016-11-30T16:00:00+08:00"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "bool": {
-                                            "boost": 2,
-                                            "must": {
-                                                "range": {
-                                                    "dog_list_custom_dog.calm_vs_playful_number": {
-                                                        "gte": 4,
-                                                        "lte": 4
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "bool": {
-                                            "must_not": {
-                                                "range": {
-                                                    "dog_list_custom_dog.calm_vs_playful_number": {
-                                                        "gte": 1,
-                                                        "lte": 7
-                                                    }
-                                                }
+                    },
+                    {
+                        "term": {
+                            "dog_added__boolean": false
+                        }
+                    },
+                    {
+                        "terms": {
+                            "can_host_sizes_list_text": [
+                                "Toy (Less than 10 lbs)"
+                            ]
+                        }
+                    },
+                    {
+                        "term": {
+                            "cats_in_home1_boolean": false
+                        }
+                    },
+                    {
+                        "term": {
+                            "dog_added__boolean": false
+                        }
+                    },
+                    {
+                        "bool": {
+                            "should": [{
+                                    "bool": {
+                                        "must": {
+                                            "terms": {
+                                                "boost": 2,
+                                                "home_type_text": []
                                             }
                                         }
                                     }
-                                ]
-                            }
+                                },
+                                {
+                                    "bool": {
+                                        "must_not": {
+                                            "terms": {
+                                                "home_type_text": []
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "nested": {
+                                        "path": "dog_list_custom_dog",
+                                        "query": {
+                                            "bool": {
+                                                "should": [{
+                                                        "bool": {
+                                                            "must": {
+                                                                "terms": {
+                                                                    "boost": 2,
+                                                                    "dog_list_custom_dog.breeds_list_text": [
+                                                                        "Poodle"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "must_not": {
+                                                                "terms": {
+                                                                    "dog_list_custom_dog.breeds_list_text": [
+                                                                        "Poodle"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "must": {
+                                                                "terms": {
+                                                                    "boost": 2,
+                                                                    "dog_list_custom_dog.size_text": [
+                                                                        "Toy (Less than 10 lbs)"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "must_not": {
+                                                                "terms": {
+                                                                    "dog_list_custom_dog.size_text": [
+                                                                        "Toy (Less than 10 lbs)"
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "boost": 2,
+                                                            "must": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.birth_date_date": {
+                                                                        "gte": "2007-04-07T15:00:00+08:00",
+                                                                        "lte": "2013-04-07T15:00:00+08:00"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "must_not": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.birth_date_date": {
+                                                                        "gte": "2005-04-07T15:00:00+08:00",
+                                                                        "lte": "2015-04-07T15:00:00+08:00"
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "boost": 2,
+                                                            "must": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.calm_vs_playful_number": {
+                                                                        "gte": 2,
+                                                                        "lte": 4
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "must_not": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.calm_vs_playful_number": {
+                                                                        "gte": 0,
+                                                                        "lte": 6
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "boost": 2,
+                                                            "must": {
+                                                                "range": {
+                                                                    "shy_vs_dominating_number.calm_vs_playful_number": {
+                                                                        "gte": 3,
+                                                                        "lte": 5
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "must_not": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.shy_vs_dominating_number": {
+                                                                        "gte": 1,
+                                                                        "lte": 7
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "boost": 2,
+                                                            "must": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.anxious_vs_relaxed_alone_number": {
+                                                                        "gte": 3,
+                                                                        "lte": 5
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "must_not": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.anxious_vs_relaxed_alone_number": {
+                                                                        "gte": 1,
+                                                                        "lte": 7
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "boost": 2,
+                                                            "must": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.timid_number": {
+                                                                        "gte": 2,
+                                                                        "lte": 4
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "must_not": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.anxious_vs_relaxed_alone_number": {
+                                                                        "gte": 0,
+                                                                        "lte": 6
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "boost": 2,
+                                                            "must": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.active_number": {
+                                                                        "gte": 2,
+                                                                        "lte": 4
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "bool": {
+                                                            "must_not": {
+                                                                "range": {
+                                                                    "dog_list_custom_dog.active_number": {
+                                                                        "gte": 0,
+                                                                        "lte": 6
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
-                }
-            ]
+                ]
+            }
         }
-    }
-
+    
 }

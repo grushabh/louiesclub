@@ -148,10 +148,10 @@ class MatchServices {
 
     if (dogFilters) {
       return esb.boolQuery().should(
-        userFilters,
-        esb.nestedQuery().path('dog_list_custom_dog').query(dogFilters)
+        userFilters.concat(esb.nestedQuery().path('dog_list_custom_dog').query(dogFilters))
       )
     }
+
 
     return esb.boolQuery().should(userFilters)
 
