@@ -44,7 +44,7 @@ class MatchServices {
 
     // Both users have a yard
     if (user.has_yard_boolean === true) {
-      userFilters.push([
+      userFilters = userFilters.concat([
         esb.boolQuery().must([
           esb.termsQuery('has_yard_boolean', true).boost(2)
         ]),
@@ -188,7 +188,7 @@ class MatchServices {
 
 
   getLocationFilter(user) {
-    return esb.geoDistanceQuery().field('zip_code_address_geographic_address')
+    return esb.geoDistanceQuery().field('zip_code_address_geographic_address.location')
       .distance('30miles')
       .geoPoint(
         esb.geoPoint()
@@ -321,7 +321,7 @@ class MatchServices {
     const query = esb.boolQuery().must(
       this.getPersonasFilter(user)
         .concat(this.getPreferenceFilter(user))
-        // .concat(this.getLocationFilter(user))
+        .concat(this.getLocationFilter(user))
         .concat(this.getHeuristicsFilter(user))
     )
     esb.prettyPrint(query)
@@ -333,7 +333,7 @@ class MatchServices {
 
   async searchUser(user) {
     const results = await elasticsearch.search({
-      index: 'louiesclub',
+      index: 'louiesclub_feb',
       type: 'user',
       body: { query: await this.getQuery(user) }
     })
