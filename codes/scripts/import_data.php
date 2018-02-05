@@ -78,11 +78,11 @@ do {
 
         unset($dog['review_list_custom_review']);
 
-        $dog['zip_code_address_geographic_address']['location'] = [];
-        $dog['zip_code_address_geographic_address']['location']['lat'] = $dog['zip_code_address_geographic_address']['lat'];
-        $dog['zip_code_address_geographic_address']['location']['lon'] = $dog['zip_code_address_geographic_address']['lng'];
-        unset($dog['zip_code_address_geographic_address']['lat']);
-        unset($dog['zip_code_address_geographic_address']['lng']);
+        $dog['zip_code_geographic_address']['location'] = [];
+        $dog['zip_code_geographic_address']['location']['lat'] = $dog['zip_code_geographic_address']['lat'];
+        $dog['zip_code_geographic_address']['location']['lon'] = $dog['zip_code_geographic_address']['lng'];
+        unset($dog['zip_code_geographic_address']['lat']);
+        unset($dog['zip_code_geographic_address']['lng']);
 
         unset($dog['response_rate_number']);
 
@@ -96,7 +96,7 @@ do {
 
 
     $document = [
-        'index' => 'louiesclub',
+        'index' => 'louiesclub_feb',
         'type' => 'user',
         'id' => $user['user_id'],
         'body' => $user
