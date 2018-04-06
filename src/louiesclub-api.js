@@ -7,7 +7,7 @@ const louiesclubAPI = axios.create({
   baseURL: 'https://louiesclub.com/version-test/api/1.1/',
   timeout: 60000,
   headers: {
-    "authorization": "Bearer a7917ffa84ccead6362358e460b8c41a"
+    "authorization": "Bearer INSERT_TOKEN_HERE"
   }
 })
 
